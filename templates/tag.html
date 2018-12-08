@@ -56,13 +56,13 @@
 
                 <td>
 
-                    <div id="showtags">
+                   
                         {% for tag in tags %}
                             {% if line.item_id == tag.item_id %}
                                 <p>{{tag.fname}} {{tag.lname}} ({{tag.email_tagged}})</p>
                             {% endif %}
                         {% endfor %}
-                    </div>
+                   
 
                     <br/>
 
@@ -75,13 +75,13 @@
 
                 <td>
 
-                    <div id="showcomments">
+                    
                         {% for com in comments %}
                             {% if line.item_id == com.item_id %}
                                 <p>{{com.timest}}: {{com.email}}: {{com.comment_text}}</p>
                             {% endif %}
                         {% endfor %}
-                    </div>
+                   
 
                     <form action="/comment" method="POST">
                         <input type="hidden" name="item_id" value="{{line.item_id}}">
