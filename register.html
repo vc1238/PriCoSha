@@ -1,0 +1,25 @@
+<html>
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+	<br><br>
+	<center><h1>Register</h1></center>
+	<br>
+<center><form action="/registerAuth" method="POST">
+	<input type="email" name = "email" placeholder="email" required/> </br>
+	<input type="password" name = "password" placeholder="password" required/></br>
+	<input type="text" name = "f_name" placeholder="first name" required/></br>
+	<input type="text" name = "l_name" placeholder="last name" required/></br>
+	<input type="submit" value = Register />
+	{% if error %}
+		<p class="error"><strong>Error:</strong> {{error}}</p>
+	{% endif %}
+</form></center>
+
+<center><a href="/">Go back</a></center>
+
+</body>
+
+
+</html>

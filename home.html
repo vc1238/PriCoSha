@@ -1,0 +1,82 @@
+<html>
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+
+<center><h1>Welcome to PriCoSha {{person}} !</h1></center>
+<hr>
+
+<form action="/post" method="POST">
+	<h2>Post a content item </h2>
+	<input type = "text" name = "item_name" placeholder="Item Name" required/></br>
+	<input type = "text" name = "file_path" placeholder="File Path" required/></br>
+	<input type = "radio" name = "is_pub" value="1" checked/> Public</br>
+	<input type = "radio" name = "is_pub" value="0" /> Private</br>
+	<h4>If post set to private, input below the friend groups (separate with comma and a space if more than one) who should be able to see: </h4>
+	<h4>Input only group names that you are the owner of or belong to (see directly below)</h4>
+	<h4>Friend groups that you either own or belong to:</h4>
+	{% for fg in fg_list %}
+	<ul>
+		<li>{{fg}}</li>
+	</ul>
+	{% endfor %}
+
+	<input type = "text" name = "fg_to_share" placeholder="Friend Groups" /></br> <!--change this to a dropdown of groups--> 
+	<input type= "submit" value = Post /></br>
+	
+</form>
+
+<hr>
+<form action="/add_friend" method="POST">
+<h2>Add new person to the friend group you own: </h2>
+<input type = "text" name = "new_friend_f_name" placeholder="Friend's first name" required/></br>
+<input type = "text" name = "new_friend_l_name" placeholder="Friend's last name" required/></br>
+<h4>Friend groups that you own: </h4>
+{% for fg1 in fg_list_own %}
+<ul>
+	<li>{{fg1}}</li>
+</ul>
+{% endfor %}
+<h4>Type in the name of the friend group you would love your friend to be added to: </h4>
+<input type = "text" name = "friend_group" placeholder="Friend group name" required/></br>
+<input type= "submit" value = Add /></br>
+</form>
+<hr>
+
+<style type="text/css">
+	table, th, td{
+		border: 1px solid black;
+	}
+</style>
+
+Here are your posts:
+
+<table>
+	<th>Time posted</th>
+	<th>Name of Content Item</th>
+
+{% for line in posts %}
+	<tr>
+		<td>{{line.post_time}}</td>
+		<td>{{line.item_name}}</td>
+	</tr>
+{% endfor %}
+</table>
+<br>
+<!--
+<a href="/select_blogger">Select a blogger</a>
+<br>
+-->
+<a href="/shared_content">Shared Content</a>
+<br>
+<a href="/tag">Tag and Comment</a>
+<br>
+<a href="/manage_tags">Manage Tags</a>
+<br>
+<a href="/logout">Logout</a>
+
+</body>
+
+
+</html>
