@@ -1,0 +1,67 @@
+<html>
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+  <br>
+  <center><h1>Content Visible to You</h1></center>
+  <br>
+<form action="/shared_content" method="GET">
+</form>
+
+<style type="text/css">
+	table, th, td{
+		border: 1px solid black;
+	}
+</style>
+
+
+<center><table>
+
+	<th>item_id</th>
+	<th>email_post</th>
+	<th>post_time</th>
+	<th>file_path</th>
+	<th>item_name</th>
+  <th>Rating</th>
+  <th>Tagged</th>
+
+
+{% for line in posts %}
+	<tr>
+
+		<td>{{line.item_id}}</td>
+		<td>{{line.email_post}}</td>
+		<td>{{line.post_time}}</td>
+		<td>{{line.file_path}}</td>
+		<td>{{line.item_name}}</td>
+
+    <td>
+    {% for line3 in posts3 %}
+      {% if line.item_id == line3.item_id %}
+      <p>{{line3.emoji}}</p>
+      {% endif %}
+    {% endfor %}
+    </td>
+
+    <td>
+    {% for line2 in posts2 %}
+      {% if line.item_id == line2.item_id %}
+      <p>{{line2.fname}}</p>
+      {% endif %}
+    {% endfor %}
+  </td> 
+
+	</tr>
+{% endfor %}
+
+
+</table><center>
+
+  <br>
+
+  <center><a href="/home">Go back</a></center>
+
+</body>
+
+</html>
