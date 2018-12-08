@@ -15,6 +15,7 @@ Features implemented:
 7. Add friend
 
 Additional features implemented:
+
 8. Forgot password - ability to reset password
 9. Add comments
 
