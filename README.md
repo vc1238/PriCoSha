@@ -1,4 +1,4 @@
-# PriCoSha
+# Mini Social Network
 CS3083 NYU Tandon Final project
 
 Contributors: 
